@@ -118,6 +118,7 @@
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 let isEmpty = CheckEmptyError([userName, passWord]);
+                if(isEmpty)
                 checkMatchPassWord(passWord, confirmPassWord);
             })
         </script>
