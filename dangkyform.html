@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <script src="https://kit.fontawesome.com/e48d166edc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets\reset.css">
+    <link rel="stylesheet" href="assets\styles-1.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="img">
+            <img src="assets/images/anhnen.jpg" alt="">
+        </div>
+        <div class="login-content">
+
+            <form action="#">
+
+                <div class="title-container">
+                    <h1>Đăng ký</h1>
+                    <h2>Xin chào!</h2>
+                    <p>Đăng ký để tiếp tục</p>
+                </div>
+
+
+                <div class="login-inner-content">
+
+
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="far fa-user-circle"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Tên tài khoản</h5>
+                            <input type="text" class="input" id="userName">
+                            <small></small>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div class="input-div pass">
+                        <div class="i">
+                            <i class="fas fa-eye" onclick="show()"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Mật khẩu</h5>
+                            <input id="passWord" type="password" class="input">
+                            <small></small>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="input-div pass">
+                        <div class="i">
+                            <i class="fas fa-eye" onclick="show()"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Nhập lại mật khẩu</h5>
+                            <input id="confirmPassWord" type="password" class="input">
+                            <small></small>
+                            <span></span>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <input on type="submit" class="btn" value="Đăng ký">
+
+                <h5>Đã có tài khoản?<a href="dangnhapform.html">Đăng nhập</a></h5>
+
+            </form>
+        </div>
+        <script src="script.js"> </script>
+        <script>
+            var userName = document.querySelector("#userName");
+            var passWord = document.querySelector("#passWord");
+            var confirmPassWord = document.querySelector("#confirmPassWord");
+            var form = document.querySelector("form");
+            console.log(passWord.value);
+            function showError(input, message) {
+                let parent = input.parentElement;
+                let small = parent.querySelector('small')
+
+                parent.classList.add('error');
+                small.innerText = message;
+            }
+            function showSuccess(input) {
+                let parent = input.parentElement;
+                let small = parent.querySelector('small')
+
+                parent.classList.remove('error');
+                small.innerText = '';
+            }
+            function CheckEmptyError(listInput) {
+                let isEmpty = false;
+                listInput.forEach(input => {
+                    input.value = input.value.trim();
+                    if (!input.value) {
+                        isEmpt = true;
+                        showError(input, 'Không được để trống');
+                    } else {
+                        showSuccess(input);
+                    }
+
+                    return isEmpty;
+                })
+            }
+            function checkMatchPassWord(pass, confirpass) {
+                if (pass.value !== confirpass.value)
+                    showError(confirpass, "Mật khẩu không trùng khớp");
+            }
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                let isEmpty = CheckEmptyError([userName, passWord]);
+                checkMatchPassWord(passWord, confirmPassWord);
+            })
+        </script>
+</body>
+
+</html>

@@ -19,7 +19,7 @@ inputs.forEach(input => {
 });
 
 
-// See Password
+
 
 function show() {
     var pswrd = document.getElementById('pswrd');

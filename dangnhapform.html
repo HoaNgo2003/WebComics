@@ -34,7 +34,9 @@
                         </div>
                         <div class="div">
                             <h5>Tên tài khoản</h5>
-                            <input type="text" class="input">
+                            <input type="text" class="input" id="userName">
+                            <small></small>
+                            <span></span>
                         </div>
                     </div>
 
@@ -44,7 +46,9 @@
                         </div>
                         <div class="div">
                             <h5>Mật khẩu</h5>
-                            <input id="pswrd" type="password" class="input">
+                            <input id="passWord" type="password" class="input">
+                            <small></small>
+                            <span></span>
                         </div>
                     </div>
 
@@ -54,10 +58,50 @@
 
                 <input type="submit" class="btn" value="Đăng nhập">
 
-                <h5>Chưa có tài khoản <a href="#">Đăng ký</a></h5>
+                <h5>Chưa có tài khoản <a href="dangkyform.html">Đăng ký</a></h5>
 
             </form>
-        </div>
+    </div>    
     <script src="script.js"> </script>
+    <script>
+        var userName = document.querySelector("#userName");
+        var passWord = document.querySelector("#passWord");
+        
+        var form = document.querySelector("form");
+        
+        function showError(input, message) {
+            let parent = input.parentElement;
+            let small = parent.querySelector('small')
+
+            parent.classList.add('error');
+            small.innerText = message;
+        }
+        function showSuccess(input) {
+            let parent = input.parentElement;
+            let small = parent.querySelector('small')
+
+            parent.classList.remove('error');
+            small.innerText = '';
+        }
+        function CheckEmptyError(listInput) {
+            let isEmpty = false;
+            listInput.forEach(input => {
+                input.value = input.value.trim();
+                if (!input.value) {
+                    isEmpt = true;
+                    showError(input, 'Không được để trống');
+                } else {
+                    showSuccess(input);
+                }
+
+                return isEmpty;
+            })
+        }
+        
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            let isEmpty = CheckEmptyError([userName, passWord]);
+        })
+    </script>
 </body>
 </html>

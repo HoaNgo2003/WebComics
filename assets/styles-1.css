@@ -62,14 +62,14 @@ a:hover{
     font-weight: 500;
     color: #c0c0c0;
 }
-.login-inner-content{
+.login-inner-content {
     padding-top: 5px;
     padding-right: 10px;
     padding-bottom: 20px;
     padding-left: 10px;
     border-radius: 10px;
     box-shadow: 0px 0px 26px -6px rgba(0,0,0,0.10);
-    height: 179px;
+    height: 202px;
     width: 345px;
 }
 .login-content .input-div{
@@ -111,14 +111,6 @@ a:hover{
     transition: .3s;
     font-weight: 500;
 }
-small {
-    font-size: 80%;
-    display: block;
-    text-align: center;
-    margin-top:  54px;
-    margin-left: 0px;
-    color: red;
-}
 .input-div:before, .input-div:after{
     content: '';
     position: absolute;
@@ -136,6 +128,14 @@ small {
 }
 .input-div.focus:before, .input-div.focus:after{
     width: 50%;
+}
+small {
+    font-size: 80%;
+    display: block;
+    text-align: center;
+    margin-top:  54px;
+    margin-left: 50px;
+    color: red;
 }
 
 .input-div.focus > div > h5{
@@ -165,7 +165,7 @@ small {
     display: block;
     text-align: right;
     color: rgb(0, 0, 0);
-    margin-top: 15px;
+    margin-top: 10px;
     font-size: 10px;
     font-weight: 600;
     transition: .3s;
