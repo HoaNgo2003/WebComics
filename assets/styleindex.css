@@ -264,8 +264,10 @@ select:focus{
          color: white;
       }
       .menu-icon{
-         display: block;
-         cursor: pointer;
+        background: white;
+        display: block;
+        cursor: pointer;
+        padding: 5px;
       }
 }
 @media only screen and (max-width: 600px){
