@@ -19,14 +19,14 @@ inputs.forEach(input => {
 });
 
 
-
+ 
 
 function show() {
-    var pswrd = document.getElementById('pswrd');
+    var pswrd = document.getElementById('passWord');
     var icon = document.querySelector('.fas');
     if (pswrd.type === "password") {
         pswrd.type = "text";
-        icon.style.color = "#893EB5";
+        icon.style.color = "#4dd8f3";
     } else{
         pswrd.type = "password";
         icon.style.color = "#d9dde4";
